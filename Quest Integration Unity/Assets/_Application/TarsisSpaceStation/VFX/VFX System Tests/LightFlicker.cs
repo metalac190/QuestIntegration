@@ -6,13 +6,13 @@ using UnityEngine.Experimental.VFX;
 public class LightFlicker : MonoBehaviour
 {
 
-    public GameObject light;
+    public GameObject flickerLight;
     public VisualEffect vfx;
 
     // Start is called before the first frame update
     void Start()
     {
-        light.active = false;
+        flickerLight.SetActive(false);
         //light.intensity = 0;
         Invoke("RandomThing", 0.5f);
 
@@ -20,7 +20,7 @@ public class LightFlicker : MonoBehaviour
     void RandomThing()
     {
         float randomTime = Random.Range(0.5f, 3f);
-        light.active = true;
+        flickerLight.SetActive(false);
         //light.intensity = 25;
         vfx.Play();
         Invoke("TurnOffLight", 0.2f);
@@ -28,8 +28,7 @@ public class LightFlicker : MonoBehaviour
     }
     void TurnOffLight()
     {
-        light.active = false;
-        //light.intensity = 0;
+        flickerLight.SetActive(false);
     }
 }
 
